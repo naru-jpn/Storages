@@ -1,6 +1,12 @@
 # Storages
 Browse local storages of your iOS applications.
 
+#### Usage Scenes
+
+- Explore your local storage to reveal configuration of application caches.
+- Find large cache file on your application's storage.
+- Preview image or text and share contents to other devices.
+
 | Browse Files | Preview File | Share File | Delete File |
 |:---:|:---:|:---:|:---:|
 | <kbd><img src="https://user-images.githubusercontent.com/5572875/195058722-e247da04-c76e-428e-887e-6212c7bc9613.PNG" width="300"></kbd> | <kbd><img src="https://user-images.githubusercontent.com/5572875/195058812-87cbc736-8a48-44c1-a53a-ff5a17029b60.PNG" width="300"></kbd> | <kbd><img src="https://user-images.githubusercontent.com/5572875/195058873-d68f7d85-d12c-4778-8745-3525d8d5d0aa.PNG" width="300"></kbd> | <kbd><img src="https://user-images.githubusercontent.com/5572875/195058883-274d1b05-f57f-4d94-a9b2-62180ae121ab.PNG" width="300"></kbd> |
