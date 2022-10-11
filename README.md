@@ -1,2 +1,2 @@
 # Storages
-Browse local storages of your applications.
+Browse local storages of your iOS applications.
