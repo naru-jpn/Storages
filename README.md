@@ -28,6 +28,8 @@ StorageBrowser(source: .home)
 
 ### Browsing from custom path.
 
+`name` is only used as navigation title. 
+
 ```swift
 StorageBrowser(source: .custom(path: CUSTOM_PATH, name: CUSTOM_NAME))
 ```
