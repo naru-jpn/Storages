@@ -8,6 +8,8 @@ public enum FilePreview {
     case jpeg(Data)
     /// webp image.
     case webp(URL)
+    /// ktx image.
+    case ktx(URL)
     /// text encoded by stringEncoding of settings.
     case text(String)
     /// can't preview.
@@ -47,6 +49,9 @@ public enum FilePreview {
             }
         case "webp":
             self = .webp(URL(fileURLWithPath: file.path).standardizedFileURL)
+            return
+        case "ktx":
+            self = .ktx(URL(fileURLWithPath: file.path).standardizedFileURL)
             return
         default:
             if let data = try? Data(contentsOf: URL(fileURLWithPath: file.path)),

@@ -1,3 +1,4 @@
+import MetalKit
 import SwiftUI
 
 /// View to preview contents of target file.
@@ -45,6 +46,26 @@ public struct FilePreviewView: View {
         case let .webp(url):
             return AnyView(
                 WebView(fileUrl: url)
+            )
+        case let .ktx(url):
+            // Performance is not critical here so create objects related Metal Framework every time.
+            guard let device = MTLCreateSystemDefaultDevice() else {
+                break
+            }
+            guard let texture = try? MTKTextureLoader(device: device).newTexture(URL: url) else {
+                break
+            }
+            let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: CGFloat(texture.height))
+            guard let ciimage = CIImage(mtlTexture: texture)?.transformed(by: transform) else {
+                break
+            }
+            guard let uiimage = CIContext().createCGImage(ciimage, from: ciimage.extent).map(UIImage.init(cgImage:)) else {
+                break
+            }
+            return AnyView(
+                Image(uiImage: uiimage)
+                    .resizable()
+                    .scaledToFit()
             )
         case let .text(string):
             return AnyView(
