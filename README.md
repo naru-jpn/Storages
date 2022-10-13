@@ -1,5 +1,5 @@
 # Storages
-Browse local storages of your iOS applications.
+Browse local storages of your applications.
 
 #### Usage Scenes
 
