@@ -48,6 +48,7 @@ public struct FileView: View {
                     Spacer()
                 }
                 .padding(.init(top: 24, leading: 36, bottom: 0, trailing: 36))
+                .frame(maxWidth: .infinity)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
