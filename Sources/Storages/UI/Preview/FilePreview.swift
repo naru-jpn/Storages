@@ -10,6 +10,8 @@ public enum FilePreview {
     case webp(URL)
     /// ktx image.
     case ktx(URL)
+    /// plist with dictionary representation.
+    case plist([String: Any])
     /// text encoded by stringEncoding of settings.
     case text(String)
     /// can't preview.
@@ -53,6 +55,17 @@ public enum FilePreview {
         case "ktx":
             self = .ktx(URL(fileURLWithPath: file.path).standardizedFileURL)
             return
+        case "plist":
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: file.path)) {
+                let availableFormats: [PropertyListSerialization.PropertyListFormat] = [.xml, .binary]
+                for format in availableFormats {
+                    var format = format
+                    if let plist = try? PropertyListSerialization.propertyList(from: data, format: &format) as? [String: Any] {
+                        self = .plist(plist)
+                        return
+                    }
+                }
+            }
         default:
             if let data = try? Data(contentsOf: URL(fileURLWithPath: file.path)),
                let string = String(data: data, encoding: settings.stringEncoding) {

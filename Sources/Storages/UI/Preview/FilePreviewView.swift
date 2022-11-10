@@ -77,7 +77,17 @@ public struct FilePreviewView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             )
-        default:
+        case let .plist(dictionary):
+            return AnyView(
+                ScrollView(.vertical) {
+                    Text(dictionary.description)
+                        .font(.system(.footnote))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .padding()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            )
+        case .unknown:
             break
         }
         return AnyView(
