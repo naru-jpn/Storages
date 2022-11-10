@@ -18,7 +18,8 @@ Browse local storages of your applications.
 - [x] Sort files or directory based on applied options.
 - [x] Calculate file size.
 - [x] Calculate total file size contained in any directory.
-- [x] Preview image (png, jpg, webp, ktx) or text content.
+- [x] Preview image, binary, text convertable contents.
+   - Available file extensions: `png`, `jpg`, `jpeg`, `webp`, `ktx`, `plist`
 - [x] Delete file with swipe.
 
 ## Installation
